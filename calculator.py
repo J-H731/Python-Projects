@@ -2,7 +2,14 @@
 # **************************************************************
 # Python Calculator
 # **************************************************************
-from tkinter import *
+
+# imports
+import tkinter 
+from tkinter import Tk
+from tkinter import StringVar
+from tkinter import Label
+from tkinter import Frame 
+from tkinter import Button
 
 
 def button_press(num):
