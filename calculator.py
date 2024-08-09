@@ -10,7 +10,6 @@ from tkinter import StringVar
 from tkinter import Label
 from tkinter import Frame 
 from tkinter import Button
-from turtle import textinput
 
 def button_press(num):
     global equation_text
