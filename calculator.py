@@ -12,37 +12,22 @@ from tkinter import Frame
 from tkinter import Button
 from turtle import textinput
 
-
 def button_press(num):
-
     global equation_text
-
     equation_text = equation_text + str(num)
-
     equation_label.set(equation_text)
 
 def equals():
-
     global equation_text
-
     try:
-
         total = str(eval(equation_text))
-
         equation_label.set(total)
-
         equation_text = total
-
     except SyntaxError:
-
         equation_label.set("syntax error")
-
         equation_text = ""
-
     except ZeroDivisionError:
-
         equation_label.set("arithmetic error")
-
         equation_text = ""
 
 def delete():
@@ -51,16 +36,12 @@ def delete():
     equation_label.set(equation_text)
 
 def clear():
-
     global equation_text
-
     equation_label.set("")
-
     equation_text = ""
 
 def calculate_expression(expression):
     return eval(expression)
-
 
 window = Tk()
 window.title("Calculator program")
