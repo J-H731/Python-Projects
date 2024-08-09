@@ -10,6 +10,7 @@ from tkinter import StringVar
 from tkinter import Label
 from tkinter import Frame 
 from tkinter import Button
+from turtle import textinput
 
 
 def button_press(num):
@@ -44,6 +45,11 @@ def equals():
 
         equation_text = ""
 
+def delete():
+    global equation_text
+    equation_text = equation_text[:-1]  # Remove the last character from the operator
+    equation_label.set(equation_text)
+
 def clear():
 
     global equation_text
@@ -52,10 +58,13 @@ def clear():
 
     equation_text = ""
 
+def calculate_expression(expression):
+    return eval(expression)
+
 
 window = Tk()
 window.title("Calculator program")
-window.geometry("500x500")
+window.geometry("600x600")
 
 equation_text = ""
 
@@ -115,7 +124,16 @@ equal.grid(row=3, column=2)
 decimal = Button(frame, text='.', height=4, width=9, font=35, command=lambda: button_press('.'))
 decimal.grid(row=3, column=1)
 
-clear = Button(window, text='clear', height=4, width=12, font=35, command=clear)
-clear.pack()
+bracket1 = Button(frame, text='(', height=4, width=9, font=35, command=lambda: button_press('('))
+bracket1.grid(row=4, column=1)
+
+bracket2 = Button(frame, text=')', height=4, width=9, font=35, command=lambda: button_press(')'))
+bracket2.grid(row=4, column=2)
+
+delete = Button(frame, text='delete', height=4, width=9, font=35, command=delete)
+delete.grid(row=4, column=0)
+
+clear = Button(frame, text='clear', height=4, width=9, font=35, command=clear)
+clear.grid(row=4, column=3)
 
 window.mainloop()
